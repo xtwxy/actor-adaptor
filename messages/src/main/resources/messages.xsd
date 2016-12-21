@@ -23,7 +23,7 @@
 
 	<xsd:complexType name="PortList">
 		<xsd:sequence>
-			<xsd:element name="ports" type="Port" maxOccurs="unbounded"/>
+			<xsd:element name="port" type="Port" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>	
 	
@@ -38,7 +38,7 @@
 	
 	<xsd:complexType name="ActorList">
 		<xsd:sequence>
-			<xsd:element name="actors" type="Actor" maxOccurs="unbounded"/>
+			<xsd:element name="actor" type="Actor" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>	
 	
