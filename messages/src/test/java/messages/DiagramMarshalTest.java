@@ -2,7 +2,6 @@ package messages;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.transform.Result;
 
 import org.junit.After;
 import org.junit.Before;
