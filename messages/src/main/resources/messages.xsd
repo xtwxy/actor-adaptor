@@ -8,18 +8,46 @@
 			<xsd:element name="to" type="Port" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
+
+	<xsd:complexType name="ConnectionList">
+		<xsd:sequence>
+			<xsd:element name="connections" type="Connection" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>	
 	
 	<xsd:complexType name="Port">
 		<xsd:attribute name="actorId" type="xsd:string" />
 		<xsd:attribute name="name" type="xsd:string" />
+		<xsd:attribute name="input" type="xsd:boolean" />
 	</xsd:complexType>
 
+	<xsd:complexType name="PortList">
+		<xsd:sequence>
+			<xsd:element name="ports" type="Port" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+	
 	<xsd:complexType name="Actor">
 		<xsd:sequence>
 			<xsd:element name="input" type="Port" maxOccurs="1"/>
-			<xsd:element name="output" type="Port" maxOccurs="unbounded"/>
+			<xsd:element name="output" type="PortList" maxOccurs="1"/>
 		</xsd:sequence>
 		<xsd:attribute name="id" type="xsd:string" />
 		<xsd:attribute name="name" type="xsd:string" />
+	</xsd:complexType>
+	
+	<xsd:complexType name="ActorList">
+		<xsd:sequence>
+			<xsd:element name="actors" type="Actor" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+	<xsd:complexType name="Diagram">
+		<xsd:sequence>
+			<xsd:element name="actors" type="ActorList" maxOccurs="1"/>
+			<xsd:element name="connections" type="ConnectionList" maxOccurs="1"/>
+		</xsd:sequence>
+		<xsd:attribute name="aggregateId" type="xsd:string"/>
+		<xsd:attribute name="name" type="xsd:string"/>
 	</xsd:complexType>
 </xsd:schema>
