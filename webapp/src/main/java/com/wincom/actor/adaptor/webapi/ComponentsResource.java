@@ -2,6 +2,7 @@ package com.wincom.actor.adaptor.webapi;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -14,7 +15,8 @@ import com.wincom.actor.adaptor.messages.PortNameList;
 public class ComponentsResource {
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    public Response getIt() {
+    @Path("/{aggregateId}")
+    public Response get(@PathParam("aggregateId") String aggregateId) {
     	Components c = new Components();
     	for(int i = 0; i < 5; ++i) {
     		ActorType e = new ActorType();
@@ -25,7 +27,7 @@ public class ComponentsResource {
     		PortNameList pnl = new PortNameList();
     		pnl.getPort().add("output-1");
     		pnl.getPort().add("output-2");
-			e.setOutput(pnl );
+			e.setOutput(pnl);
     		
 			c.getActorTypes().getActorType().add(e);
     	}
