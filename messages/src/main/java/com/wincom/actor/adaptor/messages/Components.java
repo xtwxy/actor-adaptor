@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlRootElement
+@XmlRootElement(name="components")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Components", propOrder = {
     "actorTypes"
