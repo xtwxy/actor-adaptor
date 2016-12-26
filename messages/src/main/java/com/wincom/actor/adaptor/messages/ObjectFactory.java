@@ -117,11 +117,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Diagram }
+     * Create an instance of {@link AggregateDiagram }
      * 
      */
-    public Diagram createDiagram() {
-        return new Diagram();
+    public AggregateDiagram createDiagram() {
+        return new AggregateDiagram();
     }
 
 }

@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import com.wincom.actor.adaptor.messages.Actor;
 import com.wincom.actor.adaptor.messages.Connection;
-import com.wincom.actor.adaptor.messages.Diagram;
+import com.wincom.actor.adaptor.messages.AggregateDiagram;
 import com.wincom.actor.adaptor.messages.JaxbContextUtil;
 import com.wincom.actor.adaptor.messages.Port;
 
@@ -31,7 +31,7 @@ public class DiagramMarshalTest {
 		Port actor3out1 = new Port(actor3.getId(), "output1");
 		actor3.addOutput(actor3out1);
 		
-		Diagram diagram = new Diagram();
+		AggregateDiagram diagram = new AggregateDiagram();
 		diagram.addActor(actor1);
 		diagram.addActor(actor2);
 		diagram.addActor(actor3);

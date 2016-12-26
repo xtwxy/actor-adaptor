@@ -41,11 +41,34 @@
 			<xsd:element name="actor" type="Actor" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>	
+
+	<xsd:complexType name="Queue">
+		<xsd:attribute name="name" type="xsd:string"/>
+	</xsd:complexType>	
 	
+	<xsd:complexType name="QueueList">
+		<xsd:sequence>
+			<xsd:element name="queue" type="Queue" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+
+	<xsd:complexType name="Aggregate">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="id" type="xsd:string"/>
+	</xsd:complexType>	
+	
+	<xsd:complexType name="AggregateList">
+		<xsd:sequence>
+			<xsd:element name="aggregateList" type="Aggregate" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+
 	<xsd:complexType name="Diagram">
 		<xsd:sequence>
 			<xsd:element name="actors" type="ActorList" maxOccurs="1"/>
 			<xsd:element name="connections" type="ConnectionList" maxOccurs="1"/>
+			<xsd:element name="queues" type="QueueList" maxOccurs="1"/>
+			<xsd:element name="aggregates" type="AggregateList" maxOccurs="1"/>
 		</xsd:sequence>
 		<xsd:attribute name="aggregateId" type="xsd:string"/>
 		<xsd:attribute name="name" type="xsd:string"/>

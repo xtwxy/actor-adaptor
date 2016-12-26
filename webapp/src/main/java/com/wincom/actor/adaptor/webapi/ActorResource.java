@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 
 import com.wincom.actor.adaptor.messages.Actor;
 import com.wincom.actor.adaptor.messages.Connection;
-import com.wincom.actor.adaptor.messages.Diagram;
+import com.wincom.actor.adaptor.messages.AggregateDiagram;
 import com.wincom.actor.adaptor.messages.Port;
 
 @Path("actors")
@@ -31,14 +31,14 @@ public class ActorResource {
 		Port actor3out1 = new Port(actor3.getId(), "output1");
 		actor3.addOutput(actor3out1);
 		
-		Diagram diagram = new Diagram();
-		diagram.addActor(actor1);
-		diagram.addActor(actor2);
-		diagram.addActor(actor3);
-		diagram.addConnection(new Connection(actor1.getOutput("output1"), actor2.getInput()));
-		diagram.addConnection(new Connection(actor1.getOutput("output2"), actor3.getInput()));
-		diagram.addConnection(new Connection(actor2.getOutput("output1"), actor3.getInput()));
+		AggregateDiagram AggregateDiagram = new AggregateDiagram();
+		AggregateDiagram.addActor(actor1);
+		AggregateDiagram.addActor(actor2);
+		AggregateDiagram.addActor(actor3);
+		AggregateDiagram.addConnection(new Connection(actor1.getOutput("output1"), actor2.getInput()));
+		AggregateDiagram.addConnection(new Connection(actor1.getOutput("output2"), actor3.getInput()));
+		AggregateDiagram.addConnection(new Connection(actor2.getOutput("output1"), actor3.getInput()));
 		
-		return Response.ok().entity(diagram).build();
+		return Response.ok().entity(AggregateDiagram).build();
 	}
 }
