@@ -32,6 +32,7 @@
 		<build-helper-maven-plugin.version>1.7</build-helper-maven-plugin.version>
 		<exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
 		<maven-source-plugin.version>2.4</maven-source-plugin.version>
+		<maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
 
 		<eclipse.swtbot.p2.url>http://192.168.0.161/eclipse/technology/swtbot/helios/dev-build/update-site/</eclipse.swtbot.p2.url>
 		<repository.releases.url>http://192.168.0.161:8081/nexus/content/repositories/releases</repository.releases.url>
@@ -57,6 +58,19 @@
 				<executions>
 					<execution>
 						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
 						<goals>
 							<goal>jar</goal>
 						</goals>

@@ -5,9 +5,23 @@ import com.wincom.actor.adaptor.compmgr.Subscriber;
 
 import akka.actor.ActorRef;
 
+/**
+ * Wrapper the {@code ActorRef} as a {@link Port}.
+ */
 public class AkkaActorInputWrapper implements Port, ActorRefable  {
 	ActorRef actor;
-	
+
+    /**
+     * Send message to the Wrapped actor. 
+     * If the sender is {@link ActorRefable} that refers to an 
+     * {@link ActorRef}, then set the wrapped {@link ActorRef} 
+     * as the sender to call {@link ActorRef#tell(Object, ActorRef)},
+     * otherwise, {@link ActorRef#noSender()} is used. 
+     * See {@link #enqueue(Port, Object)}.
+     * 
+     * @param sender the sender
+     * @param msg the message
+     */	
 	@Override
 	public <T> void enqueue(Port sender, T msg) {
 		ActorRef ref = ActorRef.noSender();
