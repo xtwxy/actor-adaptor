@@ -16,25 +16,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for ActorList complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ActorList">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="actor" type="{}Actor" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ActorList", propOrder = {
     "actor"
@@ -64,7 +45,7 @@ public class ActorList {
      * Objects of the following type(s) are allowed in the list
      * {@link Actor }
      * 
-     * 
+     * @return A list of {@link Actor}s
      */
     public List<Actor> getActor() {
         if (actor == null) {
