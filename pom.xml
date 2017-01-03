@@ -19,7 +19,7 @@
 		<module>adaptor-parent</module>
 		<module>messages</module>
 		<module>webapp</module>
-    <module>component-manager</module>
+    <module>helloworld-spring-annotations</module>
     <module>test</module>
     <module>test-component</module>
     <module>actor-system</module>

@@ -12,7 +12,7 @@ public class JaxbContextUtil {
 				context = JAXBContext.newInstance(new Class[] {
 						Actor.class,
 						Connection.class,
-						AggregateDiagram.class,
+						Aggregate.class,
 						Port.class
 				});
 			} catch (JAXBException e) {

@@ -17,7 +17,7 @@ public class AggregateResource {
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	@Path("/")
-	public Response getRoot() {
+	public Response getAll() {
 		log.info("");
 		return Response.ok().build();
 	}

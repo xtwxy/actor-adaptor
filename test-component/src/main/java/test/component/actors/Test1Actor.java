@@ -10,13 +10,16 @@ import com.wincom.actor.adaptor.compmgr.Port;
 
 public class Test1Actor extends AbstractActor {
 	public static String ID = "test.component.actors.test1";
-
+	public static String OUTPUT_1 = "output-1";
+	public static String OUTPUT_2 = "output-2";
+	
 	private Map<String, Port> outputs = new HashMap<String, Port>();
 
 	public Test1Actor() {
-		outputs.put("output-1", new OutputPort());
-		outputs.put("output-2", new OutputPort());
+		outputs.put(OUTPUT_1, new OutputPort());
+		outputs.put(OUTPUT_2, new OutputPort());
 	}
+	
 	@Override
 	public Port getOutput(String name) {
 		return outputs.get(name);
@@ -29,5 +32,4 @@ public class Test1Actor extends AbstractActor {
 		
 		return ports;
 	}
-
 }

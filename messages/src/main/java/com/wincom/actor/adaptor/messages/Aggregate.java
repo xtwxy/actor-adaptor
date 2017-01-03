@@ -11,17 +11,153 @@ package com.wincom.actor.adaptor.messages;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
+@XmlRootElement(name="aggregate")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Aggregate")
+@XmlType(name = "Diagram", propOrder = {
+    "actors",
+    "connections",
+    "queues",
+    "aggregates"
+})
 public class Aggregate {
 
+    @XmlElement(required = true)
+    protected ActorList actors = new ActorList();
+    @XmlElement(required = true)
+    protected ConnectionList connections = new ConnectionList();
+    @XmlElement(required = true)
+    protected QueueList queues = new QueueList();
+    @XmlElement(required = true)
+    protected AggregateList aggregates = new AggregateList();
+    @XmlAttribute(name = "aggregateId")
+    protected String aggregateId;
     @XmlAttribute(name = "name")
     protected String name;
-    @XmlAttribute(name = "id")
-    protected String id;
+
+    /**
+     * Gets the value of the actors property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActorList }
+     *     
+     */
+    public ActorList getActors() {
+        return actors;
+    }
+
+    /**
+     * Sets the value of the actors property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ActorList }
+     *     
+     */
+    public void setActors(ActorList value) {
+        this.actors = value;
+    }
+
+    /**
+     * Gets the value of the connections property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ConnectionList }
+     *     
+     */
+    public ConnectionList getConnections() {
+        return connections;
+    }
+
+    /**
+     * Sets the value of the connections property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ConnectionList }
+     *     
+     */
+    public void setConnections(ConnectionList value) {
+        this.connections = value;
+    }
+
+    /**
+     * Gets the value of the queues property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link QueueList }
+     *     
+     */
+    public QueueList getQueues() {
+        return queues;
+    }
+
+    /**
+     * Sets the value of the queues property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link QueueList }
+     *     
+     */
+    public void setQueues(QueueList value) {
+        this.queues = value;
+    }
+
+    /**
+     * Gets the value of the aggregates property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link AggregateList }
+     *     
+     */
+    public AggregateList getAggregates() {
+        return aggregates;
+    }
+
+    /**
+     * Sets the value of the aggregates property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link AggregateList }
+     *     
+     */
+    public void setAggregates(AggregateList value) {
+        this.aggregates = value;
+    }
+
+    /**
+     * Gets the value of the aggregateId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAggregateId() {
+        return aggregateId;
+    }
+
+    /**
+     * Sets the value of the aggregateId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAggregateId(String value) {
+        this.aggregateId = value;
+    }
 
     /**
      * Gets the value of the name property.
@@ -47,28 +183,36 @@ public class Aggregate {
         this.name = value;
     }
 
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getId() {
-        return id;
-    }
+	public void addActor(Actor a) {
+		this.actors.getActor().add(a);
+	}
 
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
-    }
+	public void addConnection(Connection c) {
+		this.connections.getConnection().add(c);
+	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((aggregateId == null) ? 0 : aggregateId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aggregate other = (Aggregate) obj;
+		if (aggregateId == null) {
+			if (other.aggregateId != null)
+				return false;
+		} else if (!aggregateId.equals(other.aggregateId))
+			return false;
+		return true;
+	}
 }
